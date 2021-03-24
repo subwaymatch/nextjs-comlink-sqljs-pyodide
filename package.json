@@ -12,7 +12,7 @@
     "next": "10.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "sql.js": "^1.4.0",
+    "sql.js": "^1.5.0",
     "worker-plugin": "^5.0.0"
   },
   "devDependencies": {

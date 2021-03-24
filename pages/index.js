@@ -12,7 +12,7 @@ export default function SqlJsPage() {
       // Fetch sql.js wasm file from CDN
       // This way, we don't need to deal with webpack
       locateFile: (file) =>
-        `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.4.0/dist/${file}`,
+        `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.5.0/${file}`,
     })
       .then((SQL) => setDb(new SQL.Database()))
       .catch((err) => setError(err));
