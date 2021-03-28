@@ -1,19 +1,12 @@
-const WorkerPlugin = require("worker-plugin");
-
 module.exports = {
+  future: {
+    webpack5: true,
+  },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    if (!isServer) {
-      config.plugins.push(
-        new WorkerPlugin({
-          // use "self" as the global object when receiving hot updates
-          globalObject: "self",
-        })
-      );
+    console.log(`Webpack version: ${webpack.version}`);
 
-      // Fixes npm packages that depend on `fs` module
-      config.node = {
-        fs: "empty",
-      };
+    if (!isServer) {
+      config.resolve.fallback.fs = false;
     }
 
     return config;

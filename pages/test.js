@@ -4,7 +4,9 @@ export default function Index() {
   const workerRef = useRef();
   useEffect(() => {
     // workerRef.current = new Worker("worker/myworker.js", { type: "module" });
-    workerRef.current = new Worker("worker/myworker.js", { type: "module" });
+    workerRef.current = new Worker(
+      new URL("worker/myworker.js", import.meta.url)
+    );
     workerRef.current.onmessage = (evt) =>
       alert(`WebWorker Response => ${evt.data}`);
     return () => {
